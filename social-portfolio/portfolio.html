@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Portfolio — Lakshya Rao</title>
+    <meta name="description"
+        content="Portfolio of case studies — growth campaigns, creative tests, and community launches led by Lakshya Rao.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="theme-light">
+    <header class="site-header">
+        <div class="site-nav container">
+            <a class="brand" href="index.html">Lakshya</a>
+            <nav class="main-nav" role="navigation" aria-label="Primary">
+                <button class="menu-toggle" aria-expanded="false" aria-controls="nav-list"
+                    id="menuTogglePort">Menu</button>
+                <ul class="nav-list" id="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="portfolio.html" class="nav-link is-current">Portfolio</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="themeTogglePort" class="theme-toggle" aria-pressed="false">Dark</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section container">
+            <h1 class="page-title">Portfolio</h1>
+            <p class="text-lead">A selection of campaigns where we drove measurable growth through creative testing,
+                creator partnerships, and paid optimization.</p>
+
+            <div class="portfolio-filter">
+                <label for="filterInput" class="sr-only">Filter</label>
+                <input id="filterInput" type="text" placeholder="Search by brand, metric or channel">
+            </div>
+
+            <div class="portfolio-grid full">
+                <article id="case-1" class="case-card case-large">
+                    <img src="assets/img/case-eco-1.jpg" alt="Eco Coffee hero" loading="lazy">
+                    <div class="case-body">
+                        <h3>Eco Coffee — Launch spinoff</h3>
+                        <p class="case-metrics">IG engagement +320% · CPC -45% · 8k signups</p>
+                        <p class="text-small">A launch campaign mixing UGC-led ads and creator seeding. Focus on
+                            storytelling hooks and conversion dark posts.</p>
+                        <div class="case-actions">
+                            <a class="btn btn-outline" href="case-study-eco-coffee.html">Read case study</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="case-2" class="case-card">
+                    <img src="assets/img/case-eco-2.jpg" alt="SnackLab creative" loading="lazy">
+                    <div class="case-body">
+                        <h3>SnackLab — Creator-first growth</h3>
+                        <p class="case-metrics">Reach 1.2M · 12% conversion on UGC</p>
+                        <p class="text-small">Creator seeding with performance measurement and revenue share testing.
+                        </p>
+                        <a class="btn btn-outline" href="#">Read case</a>
+                    </div>
+                </article>
+
+                <article id="case-3" class="case-card">
+                    <img src="assets/img/case-eco-3.jpg" alt="StudyNext ad creative" loading="lazy">
+                    <div class="case-body">
+                        <h3>StudyNext — Ad creative optimization</h3>
+                        <p class="case-metrics">CTR +58% · CPL -38%</p>
+                        <p class="text-small">Systematic creative testing across creative categories and messaging arcs.
+                        </p>
+                        <a class="btn btn-outline" href="#">Read case</a>
+                    </div>
+                </article>
+
+                <article id="case-4" class="case-card">
+                    <img src="assets/img/case-eco-4.jpg" alt="GreenWear community" loading="lazy">
+                    <div class="case-body">
+                        <h3>GreenWear — Community launch</h3>
+                        <p class="case-metrics">Active users 22k · Retention +18%</p>
+                        <p class="text-small">Community-first retention loops and ambassador program.</p>
+                        <a class="btn btn-outline" href="#">Read case</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a class="brand footer-brand" href="index.html">Lakshya</a>
+            </div>
+            <div class="footer-links">
+                <h4>Quick links</h4>
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Contact</h4>
+                <p class="text-small">hello@example.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/portfolio.js" defer></script>
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+</body>
+
+</html>
