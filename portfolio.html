@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Alex Social Media Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .filter-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            color: var(--muted);
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            color: var(--bg-start);
+            border-color: var(--accent);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(4, 42, 91, 0.9);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            background: #0a1f3d;
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10;
+            line-height: 1;
+        }
+
+        .modal-body {
+            padding: 40px;
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Alex<span class="text-accent">SMM</span></a>
+            <div class="mobile-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Hire Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="container" style="padding-top: 120px; text-align: center; margin-bottom: 60px;">
+        <h1 class="hero-title fade-up">Selected Works</h1>
+        <p class="text-muted fade-up">A curation of campaigns that moved the needle.</p>
+    </header>
+
+    <div class="container fade-up">
+        <div class="filter-nav">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="food">Food & Bev</button>
+            <button class="filter-btn" data-filter="beauty">Beauty</button>
+            <button class="filter-btn" data-filter="saas">SaaS</button>
+            <button class="filter-btn" data-filter="education">Education</button>
+        </div>
+
+        <div class="portfolio-grid">
+
+            <div class="project-card" data-category="beauty" onclick="openModal('modal1')">
+                <div class="project-img" style="background:linear-gradient(to bottom right, #ff9a9e, #fad0c4);"></div>
+                <div class="project-overlay">
+                    <h3 style="font-size: 1.2rem;">GlowOrganic Relaunch</h3>
+                    <p class="text-muted">Beauty • Strategy • Content</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="saas" onclick="openModal('modal2')">
+                <div class="project-img" style="background:linear-gradient(to bottom right, #a18cd1, #fbc2eb);"></div>
+                <div class="project-overlay">
+                    <h3 style="font-size: 1.2rem;">TaskMaster Integration</h3>
+                    <p class="text-muted">SaaS • LinkedIn • Lead Gen</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="food" onclick="openModal('modal3')">
+                <div class="project-img" style="background:linear-gradient(to bottom right, #84fab0, #8fd3f4);"></div>
+                <div class="project-overlay">
+                    <h3 style="font-size: 1.2rem;">GreenEats Launch</h3>
+                    <p class="text-muted">Food • Influencer • Viral</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="education" onclick="openModal('modal4')">
+                <div class="project-img" style="background:linear-gradient(to bottom right, #fccb90, #d57eeb);"></div>
+                <div class="project-overlay">
+                    <h3 style="font-size: 1.2rem;">CodeCamp Enrollment</h3>
+                    <p class="text-muted">Education • Ads • Community</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal1')">&times;</span>
+            <div class="modal-body">
+                <h2 style="margin-bottom: 20px;">GlowOrganic Relaunch</h2>
+                <div class="modal-grid">
+                    <div>
+                        <div style="aspect-ratio:1/1; background:#ff9a9e; border-radius:12px; margin-bottom:20px;">
+                        </div>
+                        <h4 style="color:var(--accent);">Creative Concept:</h4>
+                        <p class="text-muted">"7 Days of Self-Love" - A challenge focusing on mental health alongside
+                            skin health, using micro-influencers to tell authentic stories.</p>
+                    </div>
+                    <div>
+                        <h4>The Challenge</h4>
+                        <p class="text-muted" style="margin-bottom:20px;">Brand perception was dated. Engagement was <
+                                0.5%.</p>
+
+                                <h4>The Strategy</h4>
+                                <ul style="list-style:disc; padding-left:20px; color:var(--muted); margin-bottom:20px;">
+                                    <li>Pivot to "Real Skin" aesthetic (no filters).</li>
+                                    <li>Influencer seeding campaign.</li>
+                                    <li>Reels-first content strategy.</li>
+                                </ul>
+
+                                <h4>Results</h4>
+                                <div style="display:flex; justify-content:space-between; margin-top:20px;">
+                                    <div><span
+                                            style="font-size:1.5rem; color:var(--accent); font-weight:700;">+300%</span><br><span
+                                            style="font-size:0.8rem;">Engagement</span></div>
+                                    <div><span
+                                            style="font-size:1.5rem; color:var(--accent); font-weight:700;">10k</span><br><span
+                                            style="font-size:0.8rem;">New Followers</span></div>
+                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal2')">&times;</span>
+            <div class="modal-body">
+                <h2 style="margin-bottom: 20px;">TaskMaster Integration</h2>
+                <div class="modal-grid">
+                    <div>
+                        <div style="aspect-ratio:1/1; background:#a18cd1; border-radius:12px; margin-bottom:20px;">
+                        </div>
+                        <h4 style="color:var(--accent);">Creative Concept:</h4>
+                        <p class="text-muted">"Productivity Nightmares" - A humorous video series highlighting common
+                            office inefficiencies.</p>
+                    </div>
+                    <div>
+                        <h4>The Challenge</h4>
+                        <p class="text-muted" style="margin-bottom:20px;">Low awareness in the enterprise sector.</p>
+
+                        <h4>The Strategy</h4>
+                        <ul style="list-style:disc; padding-left:20px; color:var(--muted); margin-bottom:20px;">
+                            <li>Founder-led content on LinkedIn.</li>
+                            <li>Twitter threads breaking down productivity hacks.</li>
+                            <li>Webinar funnel integration.</li>
+                        </ul>
+
+                        <h4>Results</h4>
+                        <div style="display:flex; justify-content:space-between; margin-top:20px;">
+                            <div><span
+                                    style="font-size:1.5rem; color:var(--accent); font-weight:700;">$50k</span><br><span
+                                    style="font-size:0.8rem;">Pipeline Gen</span></div>
+                            <div><span
+                                    style="font-size:1.5rem; color:var(--accent); font-weight:700;">500+</span><br><span
+                                    style="font-size:0.8rem;">Webinar Signups</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal3')">&times;</span>
+            <div class="modal-body">
+                <h2 style="margin-bottom: 20px;">GreenEats Plant-Based Launch</h2>
+                <div class="modal-grid">
+                    <div>
+                        <div style="aspect-ratio:1/1; background:#84fab0; border-radius:12px; margin-bottom:20px;">
+                        </div>
+                        <h4 style="color:var(--accent);">Creative Concept:</h4>
+                        <p class="text-muted">"You Won't Believe It's Plants" - Taste test reaction videos with
+                            skeptics.</p>
+                    </div>
+                    <div>
+                        <h4>The Challenge</h4>
+                        <p class="text-muted" style="margin-bottom:20px;">Launching a new product in a saturated market.
+                        </p>
+
+                        <h4>The Strategy</h4>
+                        <ul style="list-style:disc; padding-left:20px; color:var(--muted); margin-bottom:20px;">
+                            <li>Hyper-local targeted ads.</li>
+                            <li>Partnerships with local fitness studios.</li>
+                            <li>UGC contest for best recipe.</li>
+                        </ul>
+
+                        <h4>Results</h4>
+                        <div style="display:flex; justify-content:space-between; margin-top:20px;">
+                            <div><span style="font-size:1.5rem; color:var(--accent); font-weight:700;">Sold
+                                    Out</span><br><span style="font-size:0.8rem;">In 48 Hours</span></div>
+                            <div><span
+                                    style="font-size:1.5rem; color:var(--accent); font-weight:700;">15k</span><br><span
+                                    style="font-size:0.8rem;">Email List</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('modal4')">&times;</span>
+            <div class="modal-body">
+                <h2 style="margin-bottom: 20px;">CodeCamp Season 2</h2>
+                <div class="modal-grid">
+                    <div>
+                        <div style="aspect-ratio:1/1; background:#fccb90; border-radius:12px; margin-bottom:20px;">
+                        </div>
+                        <h4 style="color:var(--accent);">Creative Concept:</h4>
+                        <p class="text-muted">"From Zero to Hired" - success stories of alumni.</p>
+                    </div>
+                    <div>
+                        <h4>The Challenge</h4>
+                        <p class="text-muted" style="margin-bottom:20px;">Drive enrollments for the summer cohort.</p>
+
+                        <h4>The Strategy</h4>
+                        <ul style="list-style:disc; padding-left:20px; color:var(--muted); margin-bottom:20px;">
+                            <li>Instagram Live Q&As with instructors.</li>
+                            <li>Early bird discount FOMO campaign.</li>
+                            <li>Student takeover stories.</li>
+                        </ul>
+
+                        <h4>Results</h4>
+                        <div style="display:flex; justify-content:space-between; margin-top:20px;">
+                            <div><span
+                                    style="font-size:1.5rem; color:var(--accent); font-weight:700;">100%</span><br><span
+                                    style="font-size:0.8rem;">Capacity Filled</span></div>
+                            <div><span
+                                    style="font-size:1.5rem; color:var(--accent); font-weight:700;">-20%</span><br><span
+                                    style="font-size:0.8rem;">Cost Per Lead</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Alex<span class="text-accent">SMM</span></h3>
+                    <p class="text-muted">Helping brands find their voice in a noisy digital world.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn">IN</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-muted"
+                style="font-size: 0.8rem; border-top: 1px solid var(--glass-border); padding-top: var(--space-m);">
+                &copy; 2024 Alex Social Media. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

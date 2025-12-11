@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Alex Social Media Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .service-card {
+            margin-bottom: var(--space-l);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--space-m);
+        }
+
+        .service-price {
+            background: rgba(126, 240, 193, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .check-list {
+            margin: var(--space-m) 0;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            color: var(--muted);
+        }
+
+        .check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .req-list li::before {
+            content: '→';
+            color: #fff;
+        }
+
+        .services-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Alex<span class="text-accent">SMM</span></a>
+            <div class="mobile-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li><a href="case-studies.html" class="nav-link">Case Studies</a></li>
+                <li><a href="contact.html" class="btn btn-primary">Hire Me</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="container" style="padding-top: 120px; text-align: center;">
+        <h1 class="hero-title fade-up">Services & Pricing</h1>
+        <p class="text-muted fade-up" style="max-width: 600px; margin: 0 auto;">Transparent packages designed to scale
+            with your business stage.</p>
+    </header>
+
+    <section class="container" style="padding-bottom: var(--space-xxl);">
+        <div class="services-wrapper">
+
+            <div class="glass-card service-card fade-up">
+                <div class="service-header">
+                    <div>
+                        <h3>Strategic Audit & Roadmap</h3>
+                        <p class="text-muted">For brands feeling stuck or lost.</p>
+                    </div>
+                    <span class="service-price">One-time: $1,200</span>
+                </div>
+                <p>A comprehensive deep-dive into your current social presence, competitor landscape, and missed
+                    opportunities. You walk away with a clear 6-month playbook.</p>
+
+                <div
+                    style="margin-top: var(--space-l); border-top: 1px solid var(--glass-border); padding-top: var(--space-m);">
+                    <h4 style="font-size: 1rem;">What You Get:</h4>
+                    <ul class="check-list">
+                        <li>Full channel audit (IG, TikTok, LinkedIn)</li>
+                        <li>Competitor analysis (3 competitors)</li>
+                        <li>Content pillar development</li>
+                        <li>Visual identity recommendations</li>
+                        <li>Hashtag & keyword strategy bank</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <h4 style="font-size: 0.9rem; color: var(--accent);">What I Need From You:</h4>
+                    <ul class="check-list req-list" style="font-size: 0.9rem;">
+                        <li>Access to analytics</li>
+                        <li>Brand guidelines (if any)</li>
+                        <li>List of key competitors</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="contact.html" class="btn">Book Audit</a>
+                </div>
+            </div>
+
+            <div class="glass-card service-card fade-up" style="transition-delay: 0.1s;">
+                <div class="service-header">
+                    <div>
+                        <h3>Full-Service Management</h3>
+                        <p class="text-muted">Complete "done-for-you" social growth.</p>
+                    </div>
+                    <span class="service-price">From $3,500/mo</span>
+                </div>
+                <p>I become your internal social media department. From ideation to execution and community management,
+                    I handle it all so you can focus on product.</p>
+
+                <div
+                    style="margin-top: var(--space-l); border-top: 1px solid var(--glass-border); padding-top: var(--space-m);">
+                    <h4 style="font-size: 1rem;">What You Get:</h4>
+                    <ul class="check-list">
+                        <li>12 Reels/TikToks + 4 Carousels per month</li>
+                        <li>Daily community engagement (1hr/day)</li>
+                        <li>Caption writing & scheduling</li>
+                        <li>Monthly reporting call</li>
+                        <li>Influencer coordination (light)</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <h4 style="font-size: 0.9rem; color: var(--accent);">Timeline:</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">Minimum 3-month commitment. First month is
+                        dedicated to onboarding and strategy.</p>
+                </div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="contact.html" class="btn btn-primary">Start Retainer</a>
+                </div>
+            </div>
+
+            <div class="glass-card service-card fade-up" style="transition-delay: 0.2s;">
+                <div class="service-header">
+                    <div>
+                        <h3>Paid Media Scaling</h3>
+                        <p class="text-muted">Meta & TikTok Ads Management.</p>
+                    </div>
+                    <span class="service-price">From $2,000/mo + % Ad Spend</span>
+                </div>
+                <p>Laser-targeted ad campaigns designed to lower your CAC and increase ROAS. We iterate on creative
+                    constantly to find winning angles.</p>
+
+                <div
+                    style="margin-top: var(--space-l); border-top: 1px solid var(--glass-border); padding-top: var(--space-m);">
+                    <h4 style="font-size: 1rem;">What You Get:</h4>
+                    <ul class="check-list">
+                        <li>Campaign setup & structure</li>
+                        <li>Audience testing & retargeting</li>
+                        <li>Weekly creative refreshing</li>
+                        <li>Pixel tracking setup</li>
+                        <li>Real-time dashboard access</li>
+                    </ul>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <h4 style="font-size: 0.9rem; color: var(--accent);">Requirements:</h4>
+                    <p class="text-muted" style="font-size: 0.9rem;">Minimum monthly ad spend of $3k required to ensure
+                        sufficient data for optimization.</p>
+                </div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="contact.html" class="btn">Scale Ads</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Alex<span class="text-accent">SMM</span></h3>
+                    <p class="text-muted">Helping brands find their voice in a noisy digital world.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn">IN</a>
+                        <a href="#" aria-label="Instagram">IG</a>
+                        <a href="#" aria-label="Twitter">TW</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-muted"
+                style="font-size: 0.8rem; border-top: 1px solid var(--glass-border); padding-top: var(--space-m);">
+                &copy; 2024 Alex Social Media. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
