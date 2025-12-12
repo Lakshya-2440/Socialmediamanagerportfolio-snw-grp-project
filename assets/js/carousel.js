@@ -134,7 +134,7 @@ class Carousel3D {
             if (this.isPlaying) {
                 this.rotate(-1);
             }
-        }, 3000);
+        }, 1500);
     }
 
     pauseAutoRotate() {
